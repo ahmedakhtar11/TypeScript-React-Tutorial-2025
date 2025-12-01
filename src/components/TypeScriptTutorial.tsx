@@ -59,6 +59,88 @@ let currentStatus: Status = "loading";
 function printId(id: number | string) {
   console.log("ID:", id);
 }`
+    },
+    {
+      id: 5,
+      title: "React with TypeScript - Function Components",
+      description: "Using TypeScript with React enhances type safety and developer experience in your components.",
+      codeExample: `import React from "react";
+      import { useState, useEffect } from "react";
+      
+      type User = {
+        name: string;
+        email: string;
+        isLoggedIn: boolean;
+        age: number;
+        hobbies: {
+          id: number;
+          title: string;
+        };
+        meta: Record<string, unknown>
+      };
+      
+      type UserProps = {
+        area: string;
+      };
+      
+      export default function App() {
+        return (
+          <div className="App">
+            <h1>TypeScript Tutorial</h1>
+            <h2>TypeScript and React!</h2>
+            <UserComponent area="chicago" />
+          </div>
+        );
+      }
+      
+      const initialForm = {
+        name: "Johnny",
+        email: "john@test.com",
+        age: 23,
+        isLoggedIn: true,
+        hobbies: {
+          id: 2,
+          title: "fishing",
+        },
+        meta: {
+        favoriteFood: 'pizza'
+        }
+      };
+      
+      const UserComponent: React.FC<UserProps> = ({ area = "chicago" }) => {
+        const [user, setUser] = useState<User>(initialForm);
+      
+        useEffect(() => {
+          const fetchedUser = {
+            name: "kano",
+            email: "kano@yahoo.com",
+            age: 12,
+            isLoggedIn: false,
+            hobbies: {
+              id: 4,
+              title: "logging",
+            },
+            meta: {
+            favoriteFood: 'Pasta'
+          }
+      }
+          setUser(fetchedUser);
+        }, [user]);
+      
+        return (
+          <div>
+            Testing User Component
+            <br />
+            User Name: {user.name}
+            <br />
+            User Email: {user.email}
+            <br />
+            User Area: {area}
+            <br/>
+            User Favorite Food: {user.meta.favoriteFood as string}
+          </div>
+        );
+      };`
     }
   ];
 
