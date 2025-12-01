@@ -8,11 +8,6 @@ interface TutorialSection {
   codeExample: string;
 }
 
-// TypeScript Type for component props
-interface TypeScriptTutorialProps {
-  showAdvanced?: boolean;
-}
-
 // TypeScript Enum for difficulty levels
 enum Difficulty {
   Beginner = "Beginner",
@@ -20,7 +15,7 @@ enum Difficulty {
   Advanced = "Advanced"
 }
 
-const TypeScriptTutorial: React.FC<TypeScriptTutorialProps> = ({ showAdvanced = true }) => {
+const TypeScriptTutorial: React.FC = () => {
   // TypeScript: Typed state with useState
   const [currentSection, setCurrentSection] = React.useState<number>(0);
 
